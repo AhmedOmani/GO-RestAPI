@@ -1,0 +1,35 @@
+# Binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Go workspace stuff
+bin/
+pkg/
+vendor/
+
+# IDE/editor files
+.vscode/
+.idea/
+*.swp
+
+# Environment variables
+.env
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Logs and debug
+*.log
+
+# Temporary files
+*.tmp
+*.bak
+
+# Go modules cache (optional if you don’t vendor)
+go.sum

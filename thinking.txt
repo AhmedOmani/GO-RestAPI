@@ -1,0 +1,18 @@
+** Building Rest api using go lang (Basic endpoints Signin/Signup)
+
+** Project Structure :
+    - .env           ===>>> for enviroment variables
+    - main.go        ===>>> Entry point , routing setup , server start
+    - handlers.go    ===>>> Http handler functions 
+    - models.go      ===>>> Struct Defenition for entities (User , POST Resquest/Response)
+    - database.go    ===>>> Database connection and quert logic
+    - auth.go        ===>>> Password hashing , JWT generation
+    - utils.go       ===>>> Helper functions (JSON Response , Shared code)
+
+** What concepts i want to address: 
+    - HTTP Server & Routing: Using the standard net/http package and gorilla/mux for cleaner routing.
+    - JSON Handling: Decoding request bodies and encoding responses.
+    - Data Validation: Using go-playground/validator for struct validation.
+    - Password Hashing: Securely storing passwords using bcrypt.
+    - Database Interaction: Using the standard database/sql package (we'll use PostgreSQL as an example, but you can adapt it).
+    - JWT for Sessions/Tokens: Using github.com/golang-jwt/jwt/v5 for token generation upon sign-in.
