@@ -23,5 +23,6 @@ type SigninRequest struct {
 
 type SigninResponse struct {
 	Token 					string 				`json:"token"`
+	Email					string				`json:"Email"`
 	Name					string				`json:"name"`
 }

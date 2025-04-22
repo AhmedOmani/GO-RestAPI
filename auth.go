@@ -46,7 +46,7 @@ func GenerateJWT(user *User) (string , error) {
 		"iat":			time.Now().Unix(),
 	}
 
-	token := jwt.NewWithClaims(jwt.SigningMethodES256 , claims);
+	token := jwt.NewWithClaims(jwt.SigningMethodHS256 , claims);
 	tokenString , err := token.SignedString(jwtSecret);
 
 	if err != nil {

@@ -46,15 +46,18 @@ func CreateUser(user *User) (int , error) {
 	return id , nil ;
 }
 
-func GetUserByEmail(email string) (bool , error) {
-	var exists bool ;
-	query := `SELECT 1 FROM app_users WHERE email = $1 LIMIT 1`;
-	err := db.QueryRow(query , email).Scan(&exists);
-	fmt.Println(err);
-	if err != nil {
-		return false , fmt.Errorf("Error while checking if email exists: %w" , err);
-	}
-	return exists , nil ;
+// GetUserByEmail retrieves a user from the database by email
+func GetUserByEmail(email string) (*User, error) {
+    query := `SELECT id, name, email, password, created_at FROM app_users WHERE email = $1`
+    user := &User{}
+    err := db.QueryRow(query, email).Scan(&user.ID, &user.Name, &user.Email, &user.Password, &user.CreatedAt)
+    if err != nil {
+        if err == sql.ErrNoRows {
+            log.Printf("User with email %s not found", email)
+            return nil, nil // Return nil, nil to indicate not found, not an error
+        }
+        log.Printf("Error fetching user by email %s: %v", email, err)
+        return nil, fmt.Errorf("database error fetching user: %w", err)
+    }
+    return user, nil
 }
-
-
