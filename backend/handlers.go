@@ -2,7 +2,6 @@ package main
 
 import (
 	"encoding/json"
-	
 	"log"
 	"net/http"
 	"strconv"
@@ -95,13 +94,13 @@ func SigninHandler(w http.ResponseWriter , r *http.Request){
 		return ;
 	}
 	if user == nil {
-		respondError(w , http.StatusUnauthorized , "Invalide email or password");
+		respondError(w , http.StatusUnauthorized , "Invalid email or password");
 		return ;
 	}
 
 	//Check password
 	if !CheckPasswordHash(req.Password , user.Password) {
-		respondError(w , http.StatusUnauthorized , "Invalid email or password");
+		respondError(w , http.StatusUnauthorized , "Invalide email or password");
 		return ;
 	}
 

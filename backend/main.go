@@ -8,8 +8,10 @@ import(
 )
 func main () {
 	InitDB();
+	InitAuth();
 	InitUtils();
-	
+	InitRedis();
+
 	//Setup Router
 	router := mux.NewRouter();
 
@@ -26,7 +28,7 @@ func main () {
         IdleTimeout:  60 * time.Second,
 	}
 
-	log.Println("Starting server on port 8080")
+	log.Println("Starting server on port 8080.")
 
 	if err := server.ListenAndServe(); err != nil {
         log.Fatal("ListenAndServe Error: ", err)
