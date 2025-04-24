@@ -16,3 +16,4 @@
     - Password Hashing: Securely storing passwords using bcrypt.
     - Database Interaction: Using the standard database/sql package (we'll use PostgreSQL as an example, but you can adapt it).
     - JWT for Sessions/Tokens: Using github.com/golang-jwt/jwt/v5 for token generation upon sign-in.
+    - Adding caching layer using redis cache.

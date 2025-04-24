@@ -1,0 +1,133 @@
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #F5F5DC; /* Off-white background */
+    font-family: 'Poppins', sans-serif;
+    padding: 20px;
+}
+
+.formContainer {
+    max-width: 400px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #E6D7B2; /* Deeper beige border */
+    border-radius: 8px;
+    background-color: #FAFAF0; /* Light cream background for form */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    animation: fadeIn 1s ease-in-out;
+}
+
+.formContainer h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #5D4037; /* Muted brown text */
+    text-align: center;
+    margin-bottom: 1.5rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.inputGroup label {
+    font-weight: 600;
+    color: #5D4037; /* Muted brown text */
+}
+
+.inputGroup input {
+    padding: 10px;
+    border: 1px solid #E6D7B2; /* Deeper beige border */
+    border-radius: 4px;
+    font-size: 1rem;
+    background-color: #FFF; /* White input background for contrast */
+    transition: border-color 0.2s ease;
+}
+
+.inputGroup input:focus {
+    outline: none;
+    border-color: #D6C7A2; /* Darker beige on focus */
+}
+
+.button {
+    padding: 12px;
+    background-color: #E6D7B2; /* Deeper beige button */
+    color: #FAFAF0; /* Light cream text */
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.button:disabled {
+    background-color: #D6C7A2; /* Darker beige when disabled */
+    cursor: not-allowed;
+}
+
+.button:not(:disabled):hover {
+    background-color: #D6C7A2; /* Darker beige on hover */
+    transform: translateY(-2px);
+}
+
+.message {
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.container p {
+    margin-top: 1rem;
+    color: #5D4037; /* Muted brown text */
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.container p a {
+    color: #E6D7B2; /* Deeper beige for links */
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.container p a:hover {
+    text-decoration: underline;
+    color: #D6C7A2; /* Darker beige on hover */
+}
+
+/* Animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

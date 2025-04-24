@@ -5,7 +5,9 @@ import(
 	"time"
 	"net/http"
 	"github.com/gorilla/mux"
+	"github.com/rs/cors"
 )
+
 func main () {
 	InitDB();
 	InitAuth();
@@ -19,9 +21,19 @@ func main () {
 	router.HandleFunc("/signup",  SignupHandler).Methods(http.MethodPost);
 	router.HandleFunc("/signin" , SigninHandler).Methods(http.MethodPost);
 
+	//CORS middleware
+	c := cors.New(cors.Options{
+		AllowedOrigins: []string{"http://localhost:3000"},
+		AllowedMethods: []string{"GET" , "POST" , "PUT" , "DELETE" , "OPTIONS"},
+		AllowedHeaders: []string{"Authorization" , "Content-Type"},
+	});
+
+	//rap router with CORS middleware
+	handler := c.Handler(router);
+
 	//Define Server
 	server := &http.Server {
-		Handler: 		router,
+		Handler: 		handler,
 		Addr:			":8080",
 		WriteTimeout: 15 * time.Second,
         ReadTimeout:  15 * time.Second,
